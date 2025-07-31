@@ -19,7 +19,7 @@ mapping = {
         }
       },
       "model":{
-        type: "text",
+        "type": "text",
         "analyzer": "standard",
         "fields":{
           "type": "keyword",
