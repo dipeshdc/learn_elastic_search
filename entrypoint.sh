@@ -1,18 +1,15 @@
 #!/bin/bash
 set -e
 
-ES_HOST="elasticsearch"
-ES_PORT=9200
-ES_URL="http://$ES_HOST:$ES_PORT"
+echo "Waiting for Elasticsearch ..."
 
-echo "Waiting for Elasticsearch at $ES_URL ..."
-
-until curl -s "$ES_URL" > /dev/null; do
+until curl -s "http://elasticsearch:9200" > /dev/null; do
   echo "Elasticsearch is unavailable - sleeping"
   sleep 2
 done
 
 echo "Elasticsearch is up! Running mapping script..."
+sleep 5
 
 python mapping.py
 
