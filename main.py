@@ -11,7 +11,7 @@ es = Elasticsearch("http://elasticsearch:9200")
 async def create_item(document: DocumentInsert):
     doc = document.dict()
     doc["updated_by"] = int(time.time())
-    response = es.index(index="req_res_index", document=doccument.dict())
+    response = es.index(index="req_res_index", document=doc)
     return {
         "result": response['result']
     }
